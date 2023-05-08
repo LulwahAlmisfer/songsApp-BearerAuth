@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A04768172A092D86000AC4A6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04768162A092D86000AC4A6 /* SignUpView.swift */; };
 		A08C27152A08EFA900E17338 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27142A08EFA900E17338 /* Auth.swift */; };
 		A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27162A08F06C00E17338 /* Auth+Keychain.swift */; };
 		A08C27192A08F0AB00E17338 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27182A08F0AB00E17338 /* Token.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A04768162A092D86000AC4A6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A08C27142A08EFA900E17338 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		A08C27162A08F06C00E17338 /* Auth+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth+Keychain.swift"; sourceTree = "<group>"; };
 		A08C27182A08F0AB00E17338 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				FF4CAAA6271F5BE00056F3BA /* SongList.swift */,
 				FF4CAAC0271F69CF0056F3BA /* AddUpdateSong.swift */,
 				A08C271C2A08F1BA00E17338 /* LoginView.swift */,
+				A04768162A092D86000AC4A6 /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A08C271B2A08F0C100E17338 /* User.swift in Sources */,
+				A04768172A092D86000AC4A6 /* SignUpView.swift in Sources */,
 				A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */,
 				FF4CAABB271F5F550056F3BA /* HttpClient.swift in Sources */,
 				FF4CAAC3271F6A2B0056F3BA /* AddUpdateSongViewModel.swift in Sources */,
