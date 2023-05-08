@@ -9,7 +9,7 @@ import SwiftUI
 
 class SongListViewModel: ObservableObject {
     @Published var songs = [Song]()
-    
+   
     func fetchSongs() async throws {
         let urlString = Constants.baseURL + Endpoints.songs
         

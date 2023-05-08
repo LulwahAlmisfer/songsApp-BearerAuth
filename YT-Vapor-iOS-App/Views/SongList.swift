@@ -12,9 +12,11 @@ struct SongList: View {
     @StateObject var viewModel = SongListViewModel()
     
     @State var modal: ModalType? = nil
+    @EnvironmentObject var auth: Auth
     
     var body: some View {
         NavigationView {
+           
             List {
                 ForEach(viewModel.songs) {
                      song in

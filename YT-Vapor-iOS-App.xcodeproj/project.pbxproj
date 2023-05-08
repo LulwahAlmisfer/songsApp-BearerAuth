@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A08C27152A08EFA900E17338 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27142A08EFA900E17338 /* Auth.swift */; };
+		A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27162A08F06C00E17338 /* Auth+Keychain.swift */; };
+		A08C27192A08F0AB00E17338 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27182A08F0AB00E17338 /* Token.swift */; };
+		A08C271B2A08F0C100E17338 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C271A2A08F0C100E17338 /* User.swift */; };
+		A08C271D2A08F1BA00E17338 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C271C2A08F1BA00E17338 /* LoginView.swift */; };
 		FF4CAAA5271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CAAA4271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift */; };
 		FF4CAAA7271F5BE00056F3BA /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CAAA6271F5BE00056F3BA /* SongList.swift */; };
 		FF4CAAA9271F5BE90056F3BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF4CAAA8271F5BE90056F3BA /* Assets.xcassets */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A08C27142A08EFA900E17338 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		A08C27162A08F06C00E17338 /* Auth+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth+Keychain.swift"; sourceTree = "<group>"; };
+		A08C27182A08F0AB00E17338 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		A08C271A2A08F0C100E17338 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A08C271C2A08F1BA00E17338 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF4CAAA1271F5BE00056F3BA /* YT-Vapor-iOS-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YT-Vapor-iOS-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4CAAA4271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YT_Vapor_iOS_AppApp.swift; sourceTree = "<group>"; };
 		FF4CAAA6271F5BE00056F3BA /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
@@ -46,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A08C27132A08EF7800E17338 /* authenctication */ = {
+			isa = PBXGroup;
+			children = (
+				A08C27142A08EFA900E17338 /* Auth.swift */,
+				A08C27162A08F06C00E17338 /* Auth+Keychain.swift */,
+			);
+			path = authenctication;
+			sourceTree = "<group>";
+		};
 		FF4CAA98271F5BE00056F3BA = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +87,7 @@
 				FF4CAAB2271F5C920056F3BA /* Models */,
 				FF4CAAB4271F5CAB0056F3BA /* Views */,
 				FF4CAAB3271F5C9E0056F3BA /* View Models */,
+				A08C27132A08EF7800E17338 /* authenctication */,
 				FF4CAAB5271F5CC00056F3BA /* Utilities */,
 				FF4CAAA4271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift */,
 				FF4CAAA8271F5BE90056F3BA /* Assets.xcassets */,
@@ -88,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				FF4CAAB6271F5D250056F3BA /* Song.swift */,
+				A08C27182A08F0AB00E17338 /* Token.swift */,
+				A08C271A2A08F0C100E17338 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -106,6 +128,7 @@
 			children = (
 				FF4CAAA6271F5BE00056F3BA /* SongList.swift */,
 				FF4CAAC0271F69CF0056F3BA /* AddUpdateSong.swift */,
+				A08C271C2A08F1BA00E17338 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,11 +213,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08C271B2A08F0C100E17338 /* User.swift in Sources */,
+				A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */,
 				FF4CAABB271F5F550056F3BA /* HttpClient.swift in Sources */,
 				FF4CAAC3271F6A2B0056F3BA /* AddUpdateSongViewModel.swift in Sources */,
+				A08C27192A08F0AB00E17338 /* Token.swift in Sources */,
 				FF4CAAC1271F69D00056F3BA /* AddUpdateSong.swift in Sources */,
 				FF4CAABF271F68900056F3BA /* ModalType.swift in Sources */,
 				FF4CAAB7271F5D250056F3BA /* Song.swift in Sources */,
+				A08C271D2A08F1BA00E17338 /* LoginView.swift in Sources */,
+				A08C27152A08EFA900E17338 /* Auth.swift in Sources */,
 				FF4CAAB9271F5D9D0056F3BA /* SongListViewModel.swift in Sources */,
 				FF4CAAA7271F5BE00056F3BA /* SongList.swift in Sources */,
 				FF4CAAA5271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift in Sources */,

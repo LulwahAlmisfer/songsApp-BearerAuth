@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct YT_Vapor_iOS_AppApp: App {
+    
+    @StateObject
+    var auth = Auth()
+    
+    
     var body: some Scene {
+        
         WindowGroup {
-            SongList()
-        }
-    }
+          if auth.isLoggedIn {
+           SongList()
+             .environmentObject(auth)
+           } else {
+             LoginView().environmentObject(auth)
+           }
+         }    }
 }

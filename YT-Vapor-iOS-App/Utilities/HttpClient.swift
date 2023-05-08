@@ -29,9 +29,17 @@ class HttpClient {
     static let shared = HttpClient()
     
     func fetch<T: Codable>(url: URL) async throws -> [T] {
-        let (data, response) = try await URLSession.shared.data(from: url)
+       let token =  Keychain.load(key: Auth.keychainKey)
+        print("Bearer \(token) token sent✅")
+    
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
         
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            print(response)
             throw HttpError.badResponse
         }
         
