@@ -30,7 +30,7 @@ class HttpClient {
     
     func fetch<T: Codable>(url: URL) async throws -> [T] {
        let token =  Keychain.load(key: Auth.keychainKey)
-        print("Bearer \(token) token sent✅")
+       // print("Bearer \(token) token sent✅")
     
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -48,6 +48,7 @@ class HttpClient {
         }
         return object
     }
+    
     
     func sendData<T: Codable>(to url: URL, object: T, httpMethod: String) async throws {
         let token =  Keychain.load(key: Auth.keychainKey)

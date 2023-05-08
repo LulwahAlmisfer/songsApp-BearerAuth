@@ -66,7 +66,7 @@ struct SignUpView: View {
                         self.passwordErrorAlert = true
                     }
                     else {
-                        saveUser()
+                      //  saveUser()
                     }
                 }
                 .disabled(email.isEmpty || password.isEmpty )
@@ -119,8 +119,25 @@ struct SignUpView: View {
   }
 
 
-  func saveUser() {
-      
+    func signUpUser () async throws {
+        let newUser = CreateUserData(email: email, password: password)
+     var url = URL(string: "http://127.0.0.1:8080/api/users")
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpBody = try JSONEncoder().encode(newUser)
+        
+        let (_, response) = try await URLSession.shared.data(for: urlRequest)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw HttpError.badResponse
+        }
+        auth.login(username: email, password: password){_ in
+            
+        }
+    }
+//  func saveUser() {
+//
 //      let createUser = CreateUserData(businessname: businessname, email: email, password: password)
 //      ResourceRequest<User>(resourcePath: "users").saveUser(createUser) { result in
 //          switch result {
@@ -142,11 +159,11 @@ struct SignUpView: View {
 //              }
 //          }
 //      }
-      
-      
-      
-      
-  }
+//
+//
+//
+//
+//  }
 
 
 }

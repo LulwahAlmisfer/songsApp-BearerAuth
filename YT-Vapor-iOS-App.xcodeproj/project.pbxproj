@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A04768172A092D86000AC4A6 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04768162A092D86000AC4A6 /* SignUpView.swift */; };
+		A04768192A098252000AC4A6 /* CreateUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04768182A098252000AC4A6 /* CreateUserData.swift */; };
 		A08C27152A08EFA900E17338 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27142A08EFA900E17338 /* Auth.swift */; };
 		A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27162A08F06C00E17338 /* Auth+Keychain.swift */; };
 		A08C27192A08F0AB00E17338 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27182A08F0AB00E17338 /* Token.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		A04768162A092D86000AC4A6 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		A04768182A098252000AC4A6 /* CreateUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserData.swift; sourceTree = "<group>"; };
 		A08C27142A08EFA900E17338 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		A08C27162A08F06C00E17338 /* Auth+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth+Keychain.swift"; sourceTree = "<group>"; };
 		A08C27182A08F0AB00E17338 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FF4CAAB6271F5D250056F3BA /* Song.swift */,
 				A08C27182A08F0AB00E17338 /* Token.swift */,
 				A08C271A2A08F0C100E17338 /* User.swift */,
+				A04768182A098252000AC4A6 /* CreateUserData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				A08C271D2A08F1BA00E17338 /* LoginView.swift in Sources */,
 				A08C27152A08EFA900E17338 /* Auth.swift in Sources */,
 				FF4CAAB9271F5D9D0056F3BA /* SongListViewModel.swift in Sources */,
+				A04768192A098252000AC4A6 /* CreateUserData.swift in Sources */,
 				FF4CAAA7271F5BE00056F3BA /* SongList.swift in Sources */,
 				FF4CAAA5271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift in Sources */,
 				FF4CAABD271F611F0056F3BA /* Constants.swift in Sources */,

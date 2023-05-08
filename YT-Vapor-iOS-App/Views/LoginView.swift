@@ -13,32 +13,39 @@ struct LoginView: View {
   @EnvironmentObject var auth: Auth
 
   var body: some View {
-    VStack {
-      Image("logo")
-        .aspectRatio(contentMode: .fit)
-        .padding(.leading, 75)
-        .padding(.trailing, 75)
-      Text("Log In")
-        .font(.largeTitle)
-      TextField("Username", text: $username)
-        .padding()
-        .autocapitalization(.none)
-        .keyboardType(.emailAddress)
-        .border(Color(.black), width: 1)
-        .padding(.horizontal)
-      SecureField("Password", text: $password)
-        .padding()
-        .border(Color(.black), width: 1)
-        .padding(.horizontal)
-      Button("Log In") {
-        login()
+      NavigationView {
+          VStack {
+          Image("logo")
+            .aspectRatio(contentMode: .fit)
+            .padding(.leading, 75)
+            .padding(.trailing, 75)
+          Text("Log In")
+            .font(.largeTitle)
+          TextField("Username", text: $username)
+            .padding()
+            .autocapitalization(.none)
+            .keyboardType(.emailAddress)
+            .border(Color(.black), width: 1)
+            .padding(.horizontal)
+          SecureField("Password", text: $password)
+            .padding()
+            .border(Color(.black), width: 1)
+            .padding(.horizontal)
+          Button("Log In") {
+            login()
+          }
+            NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true)) {
+                Text("Sign up").foregroundColor(.red)
+     
+            }
+            
+          .frame(width: 120.0, height: 60.0)
+          .disabled(username.isEmpty || password.isEmpty)
+        }
+        .alert(isPresented: $showingLoginErrorAlert) {
+          Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
+    }
       }
-      .frame(width: 120.0, height: 60.0)
-      .disabled(username.isEmpty || password.isEmpty)
-    }
-    .alert(isPresented: $showingLoginErrorAlert) {
-      Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))
-    }
   }
 
   func login() {
