@@ -50,8 +50,10 @@ class HttpClient {
     }
     
     func sendData<T: Codable>(to url: URL, object: T, httpMethod: String) async throws {
+        let token =  Keychain.load(key: Auth.keychainKey)
         var request = URLRequest(url: url)
-        
+       
+        request.addValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
         request.httpMethod = httpMethod
         request.addValue(MIMEType.JSON.rawValue,
                          forHTTPHeaderField: HttpHeaders.contentType.rawValue)
