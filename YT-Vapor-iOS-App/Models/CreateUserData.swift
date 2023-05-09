@@ -8,11 +8,11 @@
 import Foundation
 final class CreateUserData: Codable {
   var id: UUID?
-  var email: String
+  var username: String
   var password: String?
 
   init(email: String, password: String) {
-    self.email = email
+    self.username = email
     self.password = password
   }
 }

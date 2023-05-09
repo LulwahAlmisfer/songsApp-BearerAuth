@@ -17,28 +17,35 @@ struct SongList: View {
     var body: some View {
         NavigationView {
            
-            List {
-                ForEach(viewModel.songs) {
-                     song in
-                    Button {
-                        print("selected")
-                    } label: {
-                        Text(song.title)
-                            .font(.title3)
-                            .foregroundColor(Color(.label))
+            VStack {
+                Button("log out") {
+                    auth.logout()
+                    viewModel.songs = []
+                }
+                List {
+                    ForEach(viewModel.songs) {
+                         song in
+                        Button {
+                            print("selected")
+                        } label: {
+                            Text(song.title)
+                                .font(.title3)
+                                .foregroundColor(Color(.label))
+                        }
                     }
                 }
+                .navigationTitle(Text("🎵 Songs"))
+                .toolbar {
+                    Button {
+                        modal = .add
+                    } label: {
+                        Label("Add Song", systemImage: "plus.circle")
+                    }
             }
-            .navigationTitle(Text("🎵 Songs"))
-            .toolbar {
-                Button {
-                    modal = .add
-                } label: {
-                    Label("Add Song", systemImage: "plus.circle")
-                }
             }
         }
-        .sheet(item: $modal, onDismiss: { 
+       
+        .sheet(item: $modal, onDismiss: {
             Task {
                 do {
                     try await viewModel.fetchSongs()
@@ -54,15 +61,15 @@ struct SongList: View {
                 AddUpdateSong(viewModel: AddUpdateSongViewModel(currentSong: song))
             }
         }
-        .onAppear {
-            Task {
-                do {
-                    try await viewModel.fetchSongs()
-                } catch {
-                    print("❌ Error: \(error)")
-                }
+        .task {
+            do {
+                try await viewModel.fetchSongs()
+            } catch {
+                print("❌ Error: \(error)")
             }
         }
+       
+        
     }
 }
 

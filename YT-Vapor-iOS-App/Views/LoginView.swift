@@ -13,12 +13,9 @@ struct LoginView: View {
   @EnvironmentObject var auth: Auth
 
   var body: some View {
-      NavigationView {
+      NavigationView{
           VStack {
-          Image("logo")
-            .aspectRatio(contentMode: .fit)
-            .padding(.leading, 75)
-            .padding(.trailing, 75)
+       
           Text("Log In")
             .font(.largeTitle)
           TextField("Username", text: $username)
@@ -33,14 +30,13 @@ struct LoginView: View {
             .padding(.horizontal)
           Button("Log In") {
             login()
-          }
+          }.disabled(username.isEmpty || password.isEmpty)
+              
             NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true)) {
-                Text("Sign up").foregroundColor(.red)
-     
+                Text("Sign uppp").foregroundColor(.red)
             }
             
-          .frame(width: 120.0, height: 60.0)
-          .disabled(username.isEmpty || password.isEmpty)
+          
         }
         .alert(isPresented: $showingLoginErrorAlert) {
           Alert(title: Text("Error"), message: Text("Could not log in. Check your credentials and try again"))

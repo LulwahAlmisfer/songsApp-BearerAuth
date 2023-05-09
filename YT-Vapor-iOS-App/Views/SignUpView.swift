@@ -37,60 +37,20 @@ struct SignUpView: View {
                   .frame(width: 323)
                   .padding()
                   .background(Color("textfields"))
-                  .cornerRadius(14)
-                  .overlay(RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color("borders"), lineWidth: 1))
-
                         
               SecureField("\(Image(systemName: "lock.fill")) Password", text: $password)
                   .frame(width: 323)
                   .padding()
-                  .background(Color("textfields"))
-                  .cornerRadius(14)
-                  .overlay(RoundedRectangle(cornerRadius: 14)
-                      .stroke(Color("borders"), lineWidth: 1))
-                 // .offset(x:0, y: 25)
-              SecureField("\(Image(systemName: "lock.fill")) Confirm Password", text: $confirmPassword)
-                  .frame(width: 323)
-                  .padding()
-                  .background(Color("textfields"))
-                  .cornerRadius(14)
-                  .overlay(RoundedRectangle(cornerRadius: 14)
-                      .stroke(Color("borders"), lineWidth: 1))
+                  
+     
       
                 Button("Sign Up") {
-                    if(!email.isValidEmail()){
-                        self.emailErrorAlert = true
-                    }
-                    if (password != confirmPassword){
-                        self.passwordErrorAlert = true
-                    }
-                    else {
-                      //  saveUser()
-                    }
+                        Task{
+                            try await signUpUser()
+                        }
                 }
-                .disabled(email.isEmpty || password.isEmpty )
-                .frame(width: 335.0, height: 30.0)
-                .font(.title2)
-             
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color("darkBlue"))
-                    .cornerRadius(17.5)
-
-              
-              HStack{
-                  
-                  Text("Already have an Account?")
-                      .foregroundColor(Color(.gray))
-                  NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
-                      Text("Log In")
-                          .fontWeight(.bold)
-                          .foregroundColor(Color("text"))
-                      
-                      
-                  }.navigationBarBackButtonHidden(true)
-              }
+    
+       
             }
           .navigationBarTitle("SignUp")
           .navigationBarBackButtonHidden(true)
