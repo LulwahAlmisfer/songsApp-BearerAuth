@@ -7,14 +7,14 @@
 
 import Foundation
 
-final class User: Codable, Identifiable {
-  var id: UUID?
-  var name: String
-  var username: String
-
-  init(id: UUID? = nil, name: String, username: String) {
-    self.id = id
-    self.name = name
-    self.username = username
-  }
-}
+//final class User: Codable, Identifiable {
+//  var id: UUID?
+//  var name: String
+//  var username: String
+//
+//  init(id: UUID? = nil, name: String, username: String) {
+//    self.id = id
+//    self.name = name
+//    self.username = username
+//  }
+//}

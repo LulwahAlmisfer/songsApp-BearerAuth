@@ -41,6 +41,7 @@ class Auth: ObservableObject {
   }
 
   func logout() {
+      
     token = nil
   }
 

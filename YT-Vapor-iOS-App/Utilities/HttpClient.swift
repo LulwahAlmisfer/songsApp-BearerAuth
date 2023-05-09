@@ -17,6 +17,7 @@ enum MIMEType: String {
 
 enum HttpHeaders: String {
     case contentType = "Content-Type"
+    case authorization = "Authorization"
 }
 
 enum HttpError: Error {
@@ -30,12 +31,11 @@ class HttpClient {
     
     func fetch<T: Codable>(url: URL) async throws -> [T] {
        let token =  Keychain.load(key: Auth.keychainKey)
-       // print("Bearer \(token) token sent✅")
     
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+        urlRequest.httpMethod = HttpMethods.GET.rawValue
+        urlRequest.addValue(MIMEType.JSON.rawValue,forHTTPHeaderField: HttpHeaders.contentType.rawValue)
+        urlRequest.addValue("Bearer \(token ?? "")", forHTTPHeaderField: HttpHeaders.authorization.rawValue)
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
@@ -52,18 +52,16 @@ class HttpClient {
     
     func sendData<T: Codable>(to url: URL, object: T, httpMethod: String) async throws {
         let token =  Keychain.load(key: Auth.keychainKey)
-        var request = URLRequest(url: url)
-       
-        request.addValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
-        request.httpMethod = httpMethod
-        request.addValue(MIMEType.JSON.rawValue,
-                         forHTTPHeaderField: HttpHeaders.contentType.rawValue)
         
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod
+        request.addValue(MIMEType.JSON.rawValue, forHTTPHeaderField: HttpHeaders.contentType.rawValue)
+        request.addValue("Bearer \(token ?? "")", forHTTPHeaderField: HttpHeaders.authorization.rawValue)
         request.httpBody = try? JSONEncoder().encode(object)
         
         let (_, response) = try await URLSession.shared.data(for: request)
         
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+        guard (response as? HTTPURLResponse)?.statusCode == 204 else {
             throw HttpError.badResponse
         }
     }

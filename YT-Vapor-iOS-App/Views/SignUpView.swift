@@ -81,7 +81,9 @@ struct SignUpView: View {
 
     func signUpUser () async throws {
         let newUser = CreateUserData(email: email, password: password)
-     var url = URL(string: "http://127.0.0.1:8080/api/users")
+        
+        let url = URL(string:Constants.baseURL + Endpoints.users )
+        
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")

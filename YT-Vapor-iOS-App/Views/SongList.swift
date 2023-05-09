@@ -20,8 +20,9 @@ struct SongList: View {
             VStack {
                 Button("log out") {
                     auth.logout()
-                    viewModel.songs = []
+                  //  viewModel.songs = []
                 }
+            
                 List {
                     ForEach(viewModel.songs) {
                          song in
@@ -43,6 +44,12 @@ struct SongList: View {
                     }
             }
             }
+        }  .task {
+            do {
+                try await viewModel.fetchSongs()
+            } catch {
+                print("❌ Error: \(error)")
+            }
         }
        
         .sheet(item: $modal, onDismiss: {
@@ -61,15 +68,7 @@ struct SongList: View {
                 AddUpdateSong(viewModel: AddUpdateSongViewModel(currentSong: song))
             }
         }
-        .task {
-            do {
-                try await viewModel.fetchSongs()
-            } catch {
-                print("❌ Error: \(error)")
-            }
-        }
-       
-        
+
     }
 }
 

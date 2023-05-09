@@ -13,4 +13,6 @@ enum Constants {
 
 enum Endpoints {
     static let songs = "songs"
+    static let users = "api/users"
+    
 }
