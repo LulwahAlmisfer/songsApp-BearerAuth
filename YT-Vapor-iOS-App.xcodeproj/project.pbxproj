@@ -12,7 +12,6 @@
 		A08C27152A08EFA900E17338 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27142A08EFA900E17338 /* Auth.swift */; };
 		A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27162A08F06C00E17338 /* Auth+Keychain.swift */; };
 		A08C27192A08F0AB00E17338 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C27182A08F0AB00E17338 /* Token.swift */; };
-		A08C271B2A08F0C100E17338 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C271A2A08F0C100E17338 /* User.swift */; };
 		A08C271D2A08F1BA00E17338 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08C271C2A08F1BA00E17338 /* LoginView.swift */; };
 		FF4CAAA5271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CAAA4271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift */; };
 		FF4CAAA7271F5BE00056F3BA /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4CAAA6271F5BE00056F3BA /* SongList.swift */; };
@@ -33,7 +32,6 @@
 		A08C27142A08EFA900E17338 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		A08C27162A08F06C00E17338 /* Auth+Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Auth+Keychain.swift"; sourceTree = "<group>"; };
 		A08C27182A08F0AB00E17338 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		A08C271A2A08F0C100E17338 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A08C271C2A08F1BA00E17338 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FF4CAAA1271F5BE00056F3BA /* YT-Vapor-iOS-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YT-Vapor-iOS-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF4CAAA4271F5BE00056F3BA /* YT_Vapor_iOS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YT_Vapor_iOS_AppApp.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 			children = (
 				FF4CAAB6271F5D250056F3BA /* Song.swift */,
 				A08C27182A08F0AB00E17338 /* Token.swift */,
-				A08C271A2A08F0C100E17338 /* User.swift */,
 				A04768182A098252000AC4A6 /* CreateUserData.swift */,
 			);
 			path = Models;
@@ -219,7 +216,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A08C271B2A08F0C100E17338 /* User.swift in Sources */,
 				A04768172A092D86000AC4A6 /* SignUpView.swift in Sources */,
 				A08C27172A08F06C00E17338 /* Auth+Keychain.swift in Sources */,
 				FF4CAABB271F5F550056F3BA /* HttpClient.swift in Sources */,

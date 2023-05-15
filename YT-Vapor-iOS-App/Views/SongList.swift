@@ -20,7 +20,6 @@ struct SongList: View {
             VStack {
                 Button("log out") {
                     auth.logout()
-                  //  viewModel.songs = []
                 }
             
                 List {

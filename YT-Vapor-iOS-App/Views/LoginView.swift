@@ -29,7 +29,7 @@ struct LoginView: View {
             .border(Color(.black), width: 1)
             .padding(.horizontal)
           Button("Log In") {
-            login()
+              Task{ try await login() }
           }.disabled(username.isEmpty || password.isEmpty)
               
             NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true)) {
@@ -44,21 +44,13 @@ struct LoginView: View {
       }
   }
 
-  func login() {
-      
-      auth.login(username: username, password: password) {
-          result in
-          switch result {
-          case .success:
-              print("💖💖💖💖💖💖💖💖")
-              break
-          case .failure:
-              print("💖💖💖💖meow sad💖💖💖💖")
-              DispatchQueue.main.async {
-                  self.showingLoginErrorAlert = true
-              }
-          }
-      }
+    func login() async throws {
+        do{
+            try await auth.login(username: username, password: password)
+        }
+        catch {
+            throw error
+        }
     
   }
 }

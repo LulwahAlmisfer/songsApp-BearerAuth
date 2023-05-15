@@ -18,6 +18,7 @@ enum MIMEType: String {
 enum HttpHeaders: String {
     case contentType = "Content-Type"
     case authorization = "Authorization"
+    
 }
 
 enum HttpError: Error {
@@ -65,4 +66,6 @@ class HttpClient {
             throw HttpError.badResponse
         }
     }
+    
+    
 }

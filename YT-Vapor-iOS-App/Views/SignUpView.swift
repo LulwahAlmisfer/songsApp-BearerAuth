@@ -49,8 +49,6 @@ struct SignUpView: View {
                             try await signUpUser()
                         }
                 }
-    
-       
             }
           .navigationBarTitle("SignUp")
           .navigationBarBackButtonHidden(true)
@@ -94,39 +92,8 @@ struct SignUpView: View {
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
             throw HttpError.badResponse
         }
-        auth.login(username: email, password: password){_ in
-            
-        }
+       try await auth.login(username: email, password: password)
     }
-//  func saveUser() {
-//
-//      let createUser = CreateUserData(businessname: businessname, email: email, password: password)
-//      ResourceRequest<User>(resourcePath: "users").saveUser(createUser) { result in
-//          switch result {
-//          case .success:
-//              auth.login(email: email, password: password) {
-//                  result in
-//                  switch result {
-//                  case .success:
-//                      break
-//                  case .failure:
-//                      DispatchQueue.main.async {
-//                          self.showingLoginErrorAlert = true
-//                      }
-//                  }
-//              }
-//          case .failure:
-//              DispatchQueue.main.async {
-//                  self.showingUserSaveErrorAlert
-//              }
-//          }
-//      }
-//
-//
-//
-//
-//  }
-
 
 }
 
@@ -142,13 +109,7 @@ extension UIScreen{
    static let screenHeight = UIScreen.main.bounds.size.height
    static let screenSize = UIScreen.main.bounds.size
 }
-extension String {
-    func isValidEmail() -> Bool {
-        // here, `try!` will always succeed because the pattern is valid
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
-    }
-}
+
 
 extension View {
   func endTextEditing() {

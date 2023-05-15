@@ -45,11 +45,13 @@ class Auth: ObservableObject {
     token = nil
   }
 
-  func login(username: String, password: String, completion: @escaping (AuthResult) -> Void) {
-    let path = "http://localhost:8080/api/users/login"
+  func login(username: String, password: String) async throws {
+      let path = Constants.baseURL + Endpoints.login
+      
       guard let url = URL(string: path) else {
       fatalError("Failed to convert URL")
     }
+      
     guard let loginString =
         ("\(username):\(password)"
             .data(using: .utf8)?
@@ -61,18 +63,16 @@ class Auth: ObservableObject {
       loginRequest.addValue("Basic \(loginString)", forHTTPHeaderField: "Authorization")
       loginRequest.httpMethod = "POST"
       
-      let dataTask = URLSession.shared.dataTask(with: loginRequest){ data, response, _ in
-          guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let jsonData = data else {
-              completion(.failure)
-              return
-          }
-          do {
-              let token = try JSONDecoder().decode(Token.self, from: jsonData)
-              self.token = token.value
-          } catch {
-              completion(.failure)
-          }
-      }
-      dataTask.resume()
+      let (data , response) = try await URLSession.shared.data(for: loginRequest)
+      guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+          throw HttpError.badResponse
+               }
+               do {
+                   let token = try JSONDecoder().decode(Token.self, from: data)
+                   self.token = token.value
+               } catch {
+                   throw HttpError.errorDecodingData
+               }
+      
   }
 }
