@@ -83,8 +83,8 @@ struct SignUpView: View {
         let url = URL(string:Constants.baseURL + Endpoints.users )
         
         var urlRequest = URLRequest(url: url!)
-        urlRequest.httpMethod = "POST"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = HttpMethods.POST.rawValue
+        urlRequest.addValue(MIMEType.JSON.rawValue, forHTTPHeaderField: HttpHeaders.contentType.rawValue)
         urlRequest.httpBody = try JSONEncoder().encode(newUser)
         
         let (_, response) = try await URLSession.shared.data(for: urlRequest)

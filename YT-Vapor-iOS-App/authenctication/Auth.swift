@@ -60,8 +60,8 @@ class Auth: ObservableObject {
     }
       
       var loginRequest = URLRequest(url: url)
-      loginRequest.addValue("Basic \(loginString)", forHTTPHeaderField: "Authorization")
-      loginRequest.httpMethod = "POST"
+      loginRequest.addValue("Basic \(loginString)", forHTTPHeaderField: HttpHeaders.authorization.rawValue)
+      loginRequest.httpMethod = HttpMethods.POST.rawValue
       
       let (data , response) = try await URLSession.shared.data(for: loginRequest)
       guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
