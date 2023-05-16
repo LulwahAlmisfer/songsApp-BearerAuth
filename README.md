@@ -1,6 +1,3 @@
-# YouTube Vapor iOS App
+# songs app
 
-[Video link here](https://youtu.be/TyigCzPoLak)
-
-# Lesson 3
-We create our SwiftUI iOS app and use async/await to make network requests to our custom Vapor API
+### this is the IOS side of the backend - [Vapor backend](https://github.com/LulwahAlmisfer/Vapor-FirstAPI) 
